@@ -35,7 +35,7 @@ var path     = require('path')
 
     var code = wrapper.substitute({"cocos2d.js": src, "version": version})
 
-    if (!path.existsSync('build')) {
+    if (!fs.existsSync('build')) {
         fs.mkdirSync('build', 511);
     }
     fs.writeFileSync('build/' + filename + '.js', code, 'utf8')
