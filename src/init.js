@@ -27,7 +27,7 @@ exports.main = function () {
     }
 
     // Load appliaction config
-    if (path.exists('/config.js')) {
+    if (fs.exists('/config.js')) {
         config = require('/config')
         for (var k in config) {
             if (config.hasOwnProperty(k)) {

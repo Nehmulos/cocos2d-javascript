@@ -160,7 +160,7 @@ function generateZip(files, zipName) {
     zipName += '.zip';
 
     sys.puts('Generating .zip archive : ' + zipName);
-    if (path.exists(zipName)) {
+    if (fs.exists(zipName)) {
         fs.unlink(zipName);
     }
 
