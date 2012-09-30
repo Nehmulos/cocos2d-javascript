@@ -268,6 +268,22 @@ EventDispatcher.inherit(Object, /** @lends cocos.EventDispatcher# */ {
                 }
             }
         }
+    },
+
+    keyPress: function (evt) {
+        if (!this.dispatchEvents) {
+            return
+        }
+
+        for (var i = 0; i < this.keyboardDelegates.length; i++) {
+            var entry = this.keyboardDelegates[i]
+            if (entry.delegate.keyPress) {
+                var swallows = entry.delegate.keyPress(evt)
+                if (swallows) {
+                    break
+                }
+            }
+        }
     }
 
 })
