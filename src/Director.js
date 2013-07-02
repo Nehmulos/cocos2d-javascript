@@ -283,9 +283,13 @@ Director.inherit(Object, /** @lends cocos.Director# */ {
         function keyUp(evt) {
             eventDispatcher.keyUp(evt)
         }
+        function keyPress(evt) {
+            eventDispatcher.keyPress(evt)
+        }
 
         document.documentElement.addEventListener('keydown', keyDown, false)
         document.documentElement.addEventListener('keyup', keyUp, false)
+        document.documentElement.addEventListener('keypress', keyPress, false)
     }
 
   , _setupMouseEventCapturing: function () {

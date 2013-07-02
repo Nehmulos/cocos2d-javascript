@@ -156,18 +156,17 @@ ActionManager.inherit(Object, /** @lends cocos.ActionManager# */ {
                     currentTarget.currentAction = currentAction
                     currentTarget.currentActionSalvaged = false
 
-                    currentTarget.currentAction.step(dt)
-
                     if (currentTarget.currentAction.isDone) {
                         currentTarget.currentAction.stop()
 
                         var a = currentTarget.currentAction
                         currentTarget.currentAction = null
                         self.removeAction(a)
+                    } else {
+                        currentTarget.currentAction.step(dt)
                     }
 
                     currentTarget.currentAction = null
-
                 })
             }
 
