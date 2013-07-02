@@ -160,7 +160,7 @@ function generateZip(files, zipName) {
     zipName += '.zip';
 
     sys.puts('Generating .zip archive : ' + zipName);
-    if (path.exists(zipName)) {
+    if (fs.exists(zipName)) {
         fs.unlink(zipName);
     }
 
@@ -178,12 +178,12 @@ function generateGZip(files, name) {
     var zipName = name + '.tar.gz';
 
     sys.puts('Generating .tar.gz archive : ' + zipName);
-    if (path.existsSync(zipName)) {
+    if (fs.existsSync(zipName)) {
         fs.unlink(zipName);
     }
 
     var pathPrefix = path.join('.', name);
-    if (!path.existsSync(pathPrefix)) {
+    if (!fs.existsSync(pathPrefix)) {
         fs.symlinkSync('.', pathPrefix);
     }
 
@@ -210,7 +210,7 @@ function mkdir(dir, mode) {
 
     for (var i = 0, len = paths.length; i < len; i++) {
         var p = paths[i];
-        if (!path.existsSync(p)) {
+        if (!fs.existsSync(p)) {
             fs.mkdirSync(p, mode);
         }
     }
